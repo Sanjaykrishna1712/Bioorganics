@@ -215,6 +215,14 @@ export default {
           "0%, 100%": { transform: "rotateY(0deg)" },
           "50%": { transform: "rotateY(10deg)" },
         },
+        "infinite-scroll": {
+          "0%": {
+            transform: "translateX(0)"
+          },
+          "100%": {
+            transform: "translateX(calc(-400px * 3 - 2rem * 2))"
+          }
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -235,6 +243,7 @@ export default {
         "wiggle": "wiggle 1s ease-in-out infinite",
         "blob": "blob 7s infinite",
         "tilt": "tilt 6s ease-in-out infinite",
+        "infinite-scroll": "infinite-scroll 30s linear infinite", // ADDED THIS LINE
       },
       perspective: {
         '100': '100px',

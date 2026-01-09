@@ -10,7 +10,3 @@ export { BasketPreviewSection } from './BasketPreviewSection';
 export { ValuePropsSection as AddLifeValuePropsSection } from './BasketPreviewSection';
 export { FooterSection } from './BasketPreviewSection';
 
-// Import from OLD components (if you want to keep them for other pages)
-export { HeroSection as GreenHeroSection } from './HeroSection';
-export { ValuePropsSection as GreenValuePropsSection } from './ValuePropsSection';
-export { FoodWasteSection } from './FoodWasteSection';

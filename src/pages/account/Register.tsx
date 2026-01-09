@@ -46,7 +46,7 @@ const Register = () => {
 
   return (
     <Layout>
-      <div className="min-h-screen bg-gradient-to-b from-white to-green-50 py-12">
+      <div className="min-h-screen bg-gradient-to-b from-white to-blue-50 py-12">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             {/* Header */}
@@ -55,19 +55,10 @@ const Register = () => {
               animate={{ opacity: 1, y: 0 }}
               className="text-center mb-8"
             >
-              <Link to="/" className="inline-block mb-6">
-                <div className="flex items-center gap-2">
-                  <div className="p-2 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg">
-                    <Leaf className="w-6 h-6 text-white" />
-                  </div>
-                  <span className="font-serif text-2xl font-bold italic text-green-900">
-                    Bio<br/>Organics
-                  </span>
-                </div>
-              </Link>
               
-              <h1 className="text-3xl font-bold text-green-900 mb-3">Create an Account</h1>
-              <p className="text-green-700/70">Join our organic community today</p>
+              
+              <h1 className="text-3xl font-bold text-gray-900 mb-3">Create an Account</h1>
+              <p className="text-gray-600">Join our organic community today</p>
             </motion.div>
 
             <div className="grid lg:grid-cols-2 gap-8">
@@ -77,22 +68,22 @@ const Register = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.1 }}
               >
-                <div className="bg-white rounded-3xl shadow-xl border border-green-200/50 p-8 h-full">
+                <div className="bg-white rounded-3xl shadow-xl border border-gray-200 p-8 h-full">
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="p-2 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg">
+                    <div className="p-2 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-lg">
                       <Mail className="w-5 h-5 text-white" />
                     </div>
-                    <h2 className="text-xl font-bold text-green-900">Login Information</h2>
+                    <h2 className="text-xl font-bold text-gray-900">Login Information</h2>
                   </div>
 
                   <form onSubmit={handleSubmit} className="space-y-6">
                     {/* Email */}
                     <div>
-                      <Label htmlFor="email" className="text-green-700 mb-2 block">
+                      <Label htmlFor="email" className="text-gray-700 mb-2 block">
                         Email *
                       </Label>
                       <div className="relative">
-                        <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-green-400" />
+                        <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-blue-400" />
                         <Input
                           id="email"
                           name="email"
@@ -100,7 +91,7 @@ const Register = () => {
                           placeholder="your@email.com"
                           value={formData.email}
                           onChange={handleChange}
-                          className="pl-10 border-green-300 focus:border-green-500"
+                          className="pl-10 border-gray-300 focus:border-blue-500 focus:ring-blue-500"
                           required
                         />
                       </div>
@@ -108,11 +99,11 @@ const Register = () => {
 
                     {/* Password */}
                     <div>
-                      <Label htmlFor="password" className="text-green-700 mb-2 block">
+                      <Label htmlFor="password" className="text-gray-700 mb-2 block">
                         Password *
                       </Label>
                       <div className="relative">
-                        <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-green-400" />
+                        <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-blue-400" />
                         <Input
                           id="password"
                           name="password"
@@ -120,57 +111,57 @@ const Register = () => {
                           placeholder="Create a strong password"
                           value={formData.password}
                           onChange={handleChange}
-                          className="pl-10 pr-10 border-green-300 focus:border-green-500"
+                          className="pl-10 pr-10 border-gray-300 focus:border-blue-500 focus:ring-blue-500"
                           required
                         />
                         <button
                           type="button"
                           onClick={() => setShowPassword(!showPassword)}
-                          className="absolute right-3 top-1/2 transform -translate-y-1/2 text-green-400 hover:text-green-600"
+                          className="absolute right-3 top-1/2 transform -translate-y-1/2 text-blue-400 hover:text-blue-600"
                         >
                           {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                         </button>
                       </div>
-                      <p className="text-green-700/60 text-xs mt-2">
+                      <p className="text-gray-600 text-xs mt-2">
                         Minimum 8 characters with letters and numbers
                       </p>
                     </div>
 
                     {/* Personal Information */}
-                    <div className="pt-4 border-t border-green-200">
+                    <div className="pt-4 border-t border-gray-200">
                       <div className="flex items-center gap-3 mb-6">
-                        <div className="p-2 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg">
+                        <div className="p-2 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-lg">
                           <User className="w-5 h-5 text-white" />
                         </div>
-                        <h2 className="text-xl font-bold text-green-900">My Information</h2>
+                        <h2 className="text-xl font-bold text-gray-900">My Information</h2>
                       </div>
 
                       <div className="grid grid-cols-2 gap-4 mb-4">
                         <div>
-                          <Label htmlFor="firstName" className="text-green-700 mb-2 block">
+                          <Label htmlFor="firstName" className="text-gray-700 mb-2 block">
                             First Name *
                           </Label>
                           <Input
                             id="firstName"
                             name="firstName"
-                            placeholder="John"
+                            placeholder="First Name"
                             value={formData.firstName}
                             onChange={handleChange}
-                            className="border-green-300 focus:border-green-500"
+                            className="border-gray-300 focus:border-blue-500 focus:ring-blue-500"
                             required
                           />
                         </div>
                         <div>
-                          <Label htmlFor="lastName" className="text-green-700 mb-2 block">
+                          <Label htmlFor="lastName" className="text-gray-700 mb-2 block">
                             Last Name *
                           </Label>
                           <Input
                             id="lastName"
                             name="lastName"
-                            placeholder="Doe"
+                            placeholder="Last Name"
                             value={formData.lastName}
                             onChange={handleChange}
-                            className="border-green-300 focus:border-green-500"
+                            className="border-gray-300 focus:border-blue-500 focus:ring-blue-500"
                             required
                           />
                         </div>
@@ -178,11 +169,11 @@ const Register = () => {
 
                       {/* Date of Birth */}
                       <div className="mb-4">
-                        <Label htmlFor="birthDate" className="text-green-700 mb-2 block">
+                        <Label htmlFor="birthDate" className="text-gray-700 mb-2 block">
                           Date of Birth
                         </Label>
                         <div className="relative">
-                          <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-green-400" />
+                          <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-blue-400" />
                           <Input
                             id="birthDate"
                             name="birthDate"
@@ -190,32 +181,11 @@ const Register = () => {
                             placeholder="dd-mm-yyyy"
                             value={formData.birthDate}
                             onChange={handleChange}
-                            className="pl-10 border-green-300 focus:border-green-500"
+                            className="pl-10 border-gray-300 focus:border-blue-500 focus:ring-blue-500"
                           />
                         </div>
                       </div>
 
-                      {/* Preferred Delivery Day */}
-                      <div>
-                        <Label htmlFor="deliveryDay" className="text-green-700 mb-2 block">
-                          Preferred Delivery Day
-                        </Label>
-                        <Select
-                          value={formData.deliveryDay}
-                          onValueChange={(value) => handleSelectChange("deliveryDay", value)}
-                        >
-                          <SelectTrigger className="border-green-300 focus:border-green-500">
-                            <SelectValue placeholder="Select day" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            {["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"].map((day) => (
-                              <SelectItem key={day} value={day}>
-                                {day}
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                      </div>
                     </div>
                   </form>
                 </div>
@@ -228,115 +198,24 @@ const Register = () => {
                 transition={{ delay: 0.2 }}
               >
                 <div className="space-y-8">
-                  {/* Billing Address */}
-                  <div className="bg-white rounded-3xl shadow-xl border border-green-200/50 p-8">
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className="p-2 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg">
-                        <MapPin className="w-5 h-5 text-white" />
-                      </div>
-                      <h2 className="text-xl font-bold text-green-900">Billing Address</h2>
-                    </div>
-
-                    <div className="space-y-4">
-                      <div>
-                        <Label htmlFor="company" className="text-green-700 mb-2 block">
-                          Company Name (Optional)
-                        </Label>
-                        <div className="relative">
-                          <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-green-400" />
-                          <Input
-                            id="company"
-                            name="company"
-                            placeholder="Company name"
-                            value={formData.company}
-                            onChange={handleChange}
-                            className="pl-10 border-green-300 focus:border-green-500"
-                          />
-                        </div>
-                      </div>
-
-                      <div>
-                        <Label htmlFor="street" className="text-green-700 mb-2 block">
-                          Street and Number *
-                        </Label>
-                        <div className="relative">
-                          <Home className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-green-400" />
-                          <Input
-                            id="street"
-                            name="street"
-                            placeholder="Street name and number"
-                            value={formData.street}
-                            onChange={handleChange}
-                            className="pl-10 border-green-300 focus:border-green-500"
-                            required
-                          />
-                        </div>
-                      </div>
-
-                      <div className="grid grid-cols-2 gap-4">
-                        <div>
-                          <Label htmlFor="postalCode" className="text-green-700 mb-2 block">
-                            Postal Code *
-                          </Label>
-                          <Input
-                            id="postalCode"
-                            name="postalCode"
-                            placeholder="1234"
-                            value={formData.postalCode}
-                            onChange={handleChange}
-                            className="border-green-300 focus:border-green-500"
-                            required
-                          />
-                        </div>
-                        <div>
-                          <Label htmlFor="city" className="text-green-700 mb-2 block">
-                            City *
-                          </Label>
-                          <Input
-                            id="city"
-                            name="city"
-                            placeholder="City"
-                            value={formData.city}
-                            onChange={handleChange}
-                            className="border-green-300 focus:border-green-500"
-                            required
-                          />
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Different Delivery Address */}
-                    <div className="mt-6 pt-6 border-t border-green-200">
-                      <div className="flex items-center gap-3">
-                        <Checkbox
-                          id="differentAddress"
-                          checked={useDifferentAddress}
-                          onCheckedChange={(checked) => setUseDifferentAddress(checked as boolean)}
-                          className="border-green-300 data-[state=checked]:bg-green-600"
-                        />
-                        <Label htmlFor="differentAddress" className="text-green-700 cursor-pointer">
-                          Use a different delivery address
-                        </Label>
-                      </div>
-                    </div>
-                  </div>
+                 
 
                   {/* Contact Information */}
-                  <div className="bg-white rounded-3xl shadow-xl border border-green-200/50 p-8">
+                  <div className="bg-white rounded-3xl shadow-xl border border-gray-200 p-8">
                     <div className="flex items-center gap-3 mb-6">
-                      <div className="p-2 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg">
+                      <div className="p-2 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-lg">
                         <Phone className="w-5 h-5 text-white" />
                       </div>
-                      <h2 className="text-xl font-bold text-green-900">Contact Information</h2>
+                      <h2 className="text-xl font-bold text-gray-900">Contact Information</h2>
                     </div>
 
                     <div className="space-y-4">
                       <div>
-                        <Label htmlFor="phone" className="text-green-700 mb-2 block">
+                        <Label htmlFor="phone" className="text-gray-700 mb-2 block">
                           Phone Number
                         </Label>
                         <div className="relative">
-                          <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-green-400" />
+                          <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-blue-400" />
                           <Input
                             id="phone"
                             name="phone"
@@ -344,20 +223,20 @@ const Register = () => {
                             placeholder="+41 32 123 45 67"
                             value={formData.phone}
                             onChange={handleChange}
-                            className="pl-10 border-green-300 focus:border-green-500"
+                            className="pl-10 border-gray-300 focus:border-blue-500 focus:ring-blue-500"
                           />
                         </div>
                       </div>
 
                       <div>
-                        <Label htmlFor="referralSource" className="text-green-700 mb-2 block">
+                        <Label htmlFor="referralSource" className="text-gray-700 mb-2 block">
                           How did you hear about us?
                         </Label>
                         <Select
                           value={formData.referralSource}
                           onValueChange={(value) => handleSelectChange("referralSource", value)}
                         >
-                          <SelectTrigger className="border-green-300 focus:border-green-500">
+                          <SelectTrigger className="border-gray-300 focus:border-blue-500 focus:ring-blue-500">
                             <SelectValue placeholder="Choose" />
                           </SelectTrigger>
                           <SelectContent>
@@ -373,15 +252,15 @@ const Register = () => {
                     </div>
 
                     {/* Terms and Conditions */}
-                    <div className="mt-6 pt-6 border-t border-green-200">
+                    <div className="mt-6 pt-6 border-t border-gray-200">
                       <div className="flex items-start gap-3">
                         <Checkbox
                           id="terms"
                           checked={acceptTerms}
                           onCheckedChange={(checked) => setAcceptTerms(checked as boolean)}
-                          className="border-green-300 data-[state=checked]:bg-green-600 mt-1"
+                          className="border-gray-300 data-[state=checked]:bg-blue-600 data-[state=checked]:border-blue-600 mt-1"
                         />
-                        <Label htmlFor="terms" className="text-green-700 cursor-pointer">
+                        <Label htmlFor="terms" className="text-gray-700 cursor-pointer">
                           I accept the terms and conditions
                         </Label>
                       </div>
@@ -392,7 +271,7 @@ const Register = () => {
                   <Button
                     type="submit"
                     onClick={handleSubmit}
-                    className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 shadow-lg"
+                    className="w-full  from-blue-600 to-blue-600 hover:from-blue-700 hover:to-cyan-700 shadow-lg"
                     size="lg"
                     disabled={!acceptTerms}
                   >
@@ -402,11 +281,11 @@ const Register = () => {
 
                   {/* Login Link */}
                   <div className="text-center">
-                    <p className="text-green-700">
+                    <p className="text-gray-600">
                       Already have an account?{" "}
                       <Link
                         to="/login"
-                        className="font-semibold text-green-600 hover:text-green-800 transition-colors"
+                        className="font-semibold text-blue-600 hover:text-blue-800 transition-colors"
                       >
                         Log in here
                       </Link>

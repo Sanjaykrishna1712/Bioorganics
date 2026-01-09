@@ -100,16 +100,16 @@ export const OrderOffice = () => {
   const selectedPlanData = plans.find(p => p.id === selectedPlan);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-50 to-white py-8">
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white py-8">
       <div className="container mx-auto px-4 max-w-4xl">
         {/* Header */}
         <div className="mb-8">
-          <Link to="/office" className="inline-flex items-center text-green-700 hover:text-green-900 mb-4">
+          <Link to="/office" className="inline-flex items-center text-blue-700 hover:text-blue-900 mb-4">
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Office Plans
           </Link>
-          <h1 className="text-4xl font-bold text-green-900">Setup Your Office Delivery</h1>
-          <p className="text-green-700">Complete in 3 simple steps</p>
+          <h1 className="text-4xl font-bold text-gray-900">Setup Your Office Delivery</h1>
+          <p className="text-gray-600">Complete in 3 simple steps</p>
         </div>
 
         {/* Progress Bar */}
@@ -118,23 +118,23 @@ export const OrderOffice = () => {
             {["Plan Selection", "Company Info", "Payment"].map((label, index) => (
               <div key={index} className="flex flex-col items-center">
                 <div className={`w-10 h-10 rounded-full flex items-center justify-center mb-2 ${
-                  step > index + 1 ? 'bg-green-500 text-white' : 
-                  step === index + 1 ? 'bg-green-100 text-green-900 border-2 border-green-500' : 
-                  'bg-green-50 text-green-500'
+                  step > index + 1 ? 'bg-blue-500 text-white' : 
+                  step === index + 1 ? 'bg-blue-100 text-blue-900 border-2 border-blue-500' : 
+                  'bg-blue-50 text-blue-500'
                 }`}>
                   {step > index + 1 ? <CheckCircle className="w-6 h-6" /> : index + 1}
                 </div>
                 <span className={`text-sm font-medium ${
-                  step >= index + 1 ? 'text-green-900' : 'text-green-500'
+                  step >= index + 1 ? 'text-gray-900' : 'text-gray-600'
                 }`}>
                   {label}
                 </span>
               </div>
             ))}
           </div>
-          <div className="h-2 bg-green-100 rounded-full overflow-hidden">
+          <div className="h-2 bg-blue-100 rounded-full overflow-hidden">
             <motion.div 
-              className="h-full bg-green-500"
+              className="h-full bg-blue-500"
               initial={{ width: "0%" }}
               animate={{ width: `${(step - 1) * 50}%` }}
               transition={{ duration: 0.5 }}
@@ -151,7 +151,7 @@ export const OrderOffice = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
               >
-                <h2 className="text-2xl font-bold text-green-900 mb-6 flex items-center">
+                <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
                   <Package className="w-6 h-6 mr-3" />
                   Choose Your Plan
                 </h2>
@@ -161,38 +161,38 @@ export const OrderOffice = () => {
                       key={plan.id}
                       className={`cursor-pointer transition-all duration-300 ${
                         selectedPlan === plan.id 
-                          ? 'border-2 border-green-500 bg-green-50' 
-                          : 'border-green-200 hover:border-green-300'
+                          ? 'border-2 border-blue-500 bg-blue-50' 
+                          : 'border-gray-200 hover:border-blue-300'
                       }`}
                       onClick={() => setSelectedPlan(plan.id)}
                     >
                       <CardContent className="p-6">
                         <div className="flex items-start justify-between mb-4">
                           <div>
-                            <h3 className="font-bold text-lg text-green-900">{plan.name}</h3>
-                            <p className="text-sm text-green-600">Up to {plan.employees} employees</p>
+                            <h3 className="font-bold text-lg text-gray-900">{plan.name}</h3>
+                            <p className="text-sm text-gray-600">Up to {plan.employees} employees</p>
                           </div>
                           {selectedPlan === plan.id && (
-                            <CheckCircle className="w-6 h-6 text-green-500" />
+                            <CheckCircle className="w-6 h-6 text-blue-500" />
                           )}
                         </div>
                         <div className="mb-4">
-                          <span className="text-3xl font-bold text-green-900">
+                          <span className="text-3xl font-bold text-gray-900">
                             {typeof plan.price === 'number' ? `$${plan.price}` : plan.price}
                           </span>
                           {typeof plan.price === 'number' && (
-                            <span className="text-green-600">/month</span>
+                            <span className="text-gray-600">/month</span>
                           )}
                         </div>
                         <ul className="space-y-2 mb-6">
                           {plan.features.map((feature, idx) => (
-                            <li key={idx} className="flex items-center text-sm text-green-700">
-                              <div className="w-2 h-2 bg-green-400 rounded-full mr-3" />
+                            <li key={idx} className="flex items-center text-sm text-gray-700">
+                              <div className="w-2 h-2 bg-blue-400 rounded-full mr-3" />
                               {feature}
                             </li>
                           ))}
                         </ul>
-                        <div className="text-center text-sm text-green-600">
+                        <div className="text-center text-sm text-gray-600">
                           {plan.delivery} delivery
                         </div>
                       </CardContent>
@@ -207,72 +207,77 @@ export const OrderOffice = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
               >
-                <h2 className="text-2xl font-bold text-green-900 mb-6 flex items-center">
+                <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
                   <Building2 className="w-6 h-6 mr-3" />
                   Company Information
                 </h2>
                 <div className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <Label htmlFor="companyName">Company Name *</Label>
+                      <Label htmlFor="companyName" className="text-gray-700">Company Name *</Label>
                       <Input
                         id="companyName"
                         value={formData.companyName}
                         onChange={(e) => handleInputChange('companyName', e.target.value)}
                         placeholder="Your company name"
+                        className="border-gray-300 focus:border-blue-500 focus:ring-blue-500"
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="contactName">Contact Person *</Label>
+                      <Label htmlFor="contactName" className="text-gray-700">Contact Person *</Label>
                       <Input
                         id="contactName"
                         value={formData.contactName}
                         onChange={(e) => handleInputChange('contactName', e.target.value)}
                         placeholder="Full name"
+                        className="border-gray-300 focus:border-blue-500 focus:ring-blue-500"
                       />
                     </div>
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <Label htmlFor="email">Email Address *</Label>
+                      <Label htmlFor="email" className="text-gray-700">Email Address *</Label>
                       <Input
                         id="email"
                         type="email"
                         value={formData.email}
                         onChange={(e) => handleInputChange('email', e.target.value)}
                         placeholder="contact@company.com"
+                        className="border-gray-300 focus:border-blue-500 focus:ring-blue-500"
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="phone">Phone Number *</Label>
+                      <Label htmlFor="phone" className="text-gray-700">Phone Number *</Label>
                       <Input
                         id="phone"
                         value={formData.phone}
                         onChange={(e) => handleInputChange('phone', e.target.value)}
                         placeholder="+1 (555) 000-0000"
+                        className="border-gray-300 focus:border-blue-500 focus:ring-blue-500"
                       />
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="address">Delivery Address *</Label>
+                    <Label htmlFor="address" className="text-gray-700">Delivery Address *</Label>
                     <Input
                       id="address"
                       value={formData.address}
                       onChange={(e) => handleInputChange('address', e.target.value)}
                       placeholder="Street address, City, ZIP Code"
+                      className="border-gray-300 focus:border-blue-500 focus:ring-blue-500"
                     />
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <Label>Number of Employees</Label>
+                      <Label className="text-gray-700">Number of Employees</Label>
                       <Select
                         value={formData.employeeCount}
                         onValueChange={(value) => handleInputChange('employeeCount', value)}
                       >
-                        <SelectTrigger>
+                        <SelectTrigger className="border-gray-300 focus:border-blue-500 focus:ring-blue-500">
                           <SelectValue placeholder="Select range" />
                         </SelectTrigger>
                         <SelectContent>
@@ -285,12 +290,12 @@ export const OrderOffice = () => {
                       </Select>
                     </div>
                     <div className="space-y-2">
-                      <Label>Preferred Delivery Day</Label>
+                      <Label className="text-gray-700">Preferred Delivery Day</Label>
                       <Select
                         value={formData.deliveryDay}
                         onValueChange={(value) => handleInputChange('deliveryDay', value)}
                       >
-                        <SelectTrigger>
+                        <SelectTrigger className="border-gray-300 focus:border-blue-500 focus:ring-blue-500">
                           <SelectValue placeholder="Select day" />
                         </SelectTrigger>
                         <SelectContent>
@@ -303,12 +308,12 @@ export const OrderOffice = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <Label>Delivery Time Window</Label>
+                    <Label className="text-gray-700">Delivery Time Window</Label>
                     <Select
                       value={formData.deliveryTime}
                       onValueChange={(value) => handleInputChange('deliveryTime', value)}
                     >
-                      <SelectTrigger>
+                      <SelectTrigger className="border-gray-300 focus:border-blue-500 focus:ring-blue-500">
                         <SelectValue placeholder="Select time" />
                       </SelectTrigger>
                       <SelectContent>
@@ -320,13 +325,14 @@ export const OrderOffice = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="specialInstructions">Special Instructions</Label>
+                    <Label htmlFor="specialInstructions" className="text-gray-700">Special Instructions</Label>
                     <Textarea
                       id="specialInstructions"
                       value={formData.specialInstructions}
                       onChange={(e) => handleInputChange('specialInstructions', e.target.value)}
                       placeholder="Any dietary restrictions, building access instructions, etc."
                       rows={3}
+                      className="border-gray-300 focus:border-blue-500 focus:ring-blue-500"
                     />
                   </div>
                 </div>
@@ -338,28 +344,28 @@ export const OrderOffice = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
               >
-                <h2 className="text-2xl font-bold text-green-900 mb-6 flex items-center">
+                <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
                   <CreditCard className="w-6 h-6 mr-3" />
                   Payment Details
                 </h2>
                 <div className="space-y-6">
                   <div className="space-y-2">
-                    <Label>Payment Method</Label>
+                    <Label className="text-gray-700">Payment Method</Label>
                     <RadioGroup 
                       value={formData.paymentMethod} 
                       onValueChange={(value) => handleInputChange('paymentMethod', value)}
                     >
                       <div className="flex items-center space-x-2">
-                        <RadioGroupItem value="credit" id="credit" />
-                        <Label htmlFor="credit">Credit Card</Label>
+                        <RadioGroupItem value="credit" id="credit" className="border-gray-300 text-blue-600" />
+                        <Label htmlFor="credit" className="text-gray-700 cursor-pointer">Credit Card</Label>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <RadioGroupItem value="invoice" id="invoice" />
-                        <Label htmlFor="invoice">Invoice (Net 30)</Label>
+                        <RadioGroupItem value="invoice" id="invoice" className="border-gray-300 text-blue-600" />
+                        <Label htmlFor="invoice" className="text-gray-700 cursor-pointer">Invoice (Net 30)</Label>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <RadioGroupItem value="bank" id="bank" />
-                        <Label htmlFor="bank">Bank Transfer</Label>
+                        <RadioGroupItem value="bank" id="bank" className="border-gray-300 text-blue-600" />
+                        <Label htmlFor="bank" className="text-gray-700 cursor-pointer">Bank Transfer</Label>
                       </div>
                     </RadioGroup>
                   </div>
@@ -367,32 +373,36 @@ export const OrderOffice = () => {
                   {formData.paymentMethod === 'credit' && (
                     <div className="space-y-4">
                       <div className="space-y-2">
-                        <Label htmlFor="cardNumber">Card Number</Label>
+                        <Label htmlFor="cardNumber" className="text-gray-700">Card Number</Label>
                         <Input
                           id="cardNumber"
                           placeholder="1234 5678 9012 3456"
+                          className="border-gray-300 focus:border-blue-500 focus:ring-blue-500"
                         />
                       </div>
                       <div className="grid md:grid-cols-3 gap-4">
                         <div className="space-y-2">
-                          <Label htmlFor="expiry">Expiry Date</Label>
+                          <Label htmlFor="expiry" className="text-gray-700">Expiry Date</Label>
                           <Input
                             id="expiry"
                             placeholder="MM/YY"
+                            className="border-gray-300 focus:border-blue-500 focus:ring-blue-500"
                           />
                         </div>
                         <div className="space-y-2">
-                          <Label htmlFor="cvc">CVC</Label>
+                          <Label htmlFor="cvc" className="text-gray-700">CVC</Label>
                           <Input
                             id="cvc"
                             placeholder="123"
+                            className="border-gray-300 focus:border-blue-500 focus:ring-blue-500"
                           />
                         </div>
                         <div className="space-y-2">
-                          <Label htmlFor="zip">ZIP Code</Label>
+                          <Label htmlFor="zip" className="text-gray-700">ZIP Code</Label>
                           <Input
                             id="zip"
                             placeholder="12345"
+                            className="border-gray-300 focus:border-blue-500 focus:ring-blue-500"
                           />
                         </div>
                       </div>
@@ -400,23 +410,23 @@ export const OrderOffice = () => {
                   )}
 
                   {formData.paymentMethod === 'invoice' && (
-                    <div className="bg-green-50 p-4 rounded-lg">
-                      <p className="text-green-700">
+                    <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                      <p className="text-blue-700">
                         You'll receive an invoice via email. Payment terms are Net 30.
                       </p>
                     </div>
                   )}
 
                   {formData.paymentMethod === 'bank' && (
-                    <div className="bg-green-50 p-4 rounded-lg">
-                      <p className="text-green-700">
+                    <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                      <p className="text-blue-700">
                         Bank transfer details will be provided on your invoice.
                       </p>
                     </div>
                   )}
 
-                  <div className="flex items-center text-green-700">
-                    <Shield className="w-5 h-5 mr-2 text-green-600" />
+                  <div className="flex items-center text-blue-700">
+                    <Shield className="w-5 h-5 mr-2 text-blue-600" />
                     <span className="text-sm">All payments are secure and encrypted</span>
                   </div>
                 </div>
@@ -429,13 +439,13 @@ export const OrderOffice = () => {
                 variant="outline"
                 onClick={() => setStep(Math.max(1, step - 1))}
                 disabled={step === 1}
-                className="border-green-300 text-green-900"
+                className="border-gray-300 text-gray-700 hover:bg-gray-50"
               >
                 Back
               </Button>
               <Button
                 onClick={handleNextStep}
-                className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 px-8"
+                className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 px-8"
               >
                 {step === 3 ? 'Complete Order' : 'Continue'}
               </Button>
@@ -444,27 +454,27 @@ export const OrderOffice = () => {
 
           {/* Order Summary */}
           <div>
-            <Card className="sticky top-24 border-green-200">
+            <Card className="sticky top-24 border-gray-200">
               <CardContent className="p-6">
-                <h3 className="font-bold text-lg text-green-900 mb-6">Order Summary</h3>
+                <h3 className="font-bold text-lg text-gray-900 mb-6">Order Summary</h3>
                 
                 {selectedPlanData && (
                   <div className="mb-6">
                     <div className="flex justify-between items-start mb-2">
                       <div>
-                        <h4 className="font-semibold text-green-900">{selectedPlanData.name} Plan</h4>
-                        <p className="text-sm text-green-600">{selectedPlanData.employees} employees</p>
+                        <h4 className="font-semibold text-gray-900">{selectedPlanData.name} Plan</h4>
+                        <p className="text-sm text-gray-600">{selectedPlanData.employees} employees</p>
                       </div>
-                      <span className="font-bold text-green-900">
+                      <span className="font-bold text-gray-900">
                         {typeof selectedPlanData.price === 'number' 
                           ? `$${selectedPlanData.price}/mo` 
                           : 'Custom Pricing'}
                       </span>
                     </div>
-                    <ul className="space-y-2 text-sm text-green-700 mb-4">
+                    <ul className="space-y-2 text-sm text-gray-700 mb-4">
                       {selectedPlanData.features.map((feature, idx) => (
                         <li key={idx} className="flex items-center">
-                          <CheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
+                          <CheckCircle className="w-4 h-4 text-blue-500 mr-2 flex-shrink-0" />
                           {feature}
                         </li>
                       ))}
@@ -472,36 +482,36 @@ export const OrderOffice = () => {
                   </div>
                 )}
 
-                <div className="space-y-4 border-t border-green-200 pt-6">
-                  <div className="flex justify-between text-green-700">
+                <div className="space-y-4 border-t border-gray-200 pt-6">
+                  <div className="flex justify-between text-gray-700">
                     <span>Subtotal</span>
                     <span>$599.00</span>
                   </div>
-                  <div className="flex justify-between text-green-700">
+                  <div className="flex justify-between text-gray-700">
                     <span>Delivery</span>
-                    <span className="text-green-500">FREE</span>
+                    <span className="text-blue-500">FREE</span>
                   </div>
-                  <div className="flex justify-between text-green-700">
+                  <div className="flex justify-between text-gray-700">
                     <span>Tax</span>
                     <span>$47.92</span>
                   </div>
-                  <div className="flex justify-between font-bold text-lg text-green-900 border-t border-green-200 pt-4">
+                  <div className="flex justify-between font-bold text-lg text-gray-900 border-t border-gray-200 pt-4">
                     <span>Total</span>
                     <span>$646.92/mo</span>
                   </div>
                 </div>
 
-                <div className="mt-6 text-sm text-green-600">
+                <div className="mt-6 text-sm text-gray-600">
                   <p className="flex items-center mb-2">
-                    <Shield className="w-4 h-4 mr-2" />
+                    <Shield className="w-4 h-4 mr-2 text-blue-500" />
                     Secure 256-bit encryption
                   </p>
                   <p className="flex items-center mb-2">
-                    <Calendar className="w-4 h-4 mr-2" />
+                    <Calendar className="w-4 h-4 mr-2 text-blue-500" />
                     14-day free trial included
                   </p>
                   <p className="flex items-center">
-                    <Users className="w-4 h-4 mr-2" />
+                    <Users className="w-4 h-4 mr-2 text-blue-500" />
                     Cancel anytime
                   </p>
                 </div>

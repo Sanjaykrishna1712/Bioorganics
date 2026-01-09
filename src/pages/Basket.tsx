@@ -57,33 +57,9 @@ const BasketPage = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-green-900 via-emerald-900 to-green-950 py-24">
-        <div className="absolute inset-0 overflow-hidden">
-          {[...Array(20)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                fontSize: `${20 + Math.random() * 40}px`,
-              }}
-              animate={{
-                y: [0, -100, 0],
-                rotate: [0, 360],
-                scale: [1, 1.5, 1],
-              }}
-              transition={{
-                duration: 15 + Math.random() * 15,
-                repeat: Infinity,
-                delay: Math.random() * 10,
-              }}
-            >
-              {selectedOption === 'vegetables-fruits' ? '🥕' : '🍎'}
-            </motion.div>
-          ))}
-        </div>
-
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#F694C3] to-[#F694C3] py-12 rounded-b-[60px]">
+        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10"></div>
+        
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <motion.div
@@ -91,24 +67,7 @@ const BasketPage = () => {
               animate={{ opacity: 1, y: 0 }}
               className="mb-8"
             >
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.2, type: "spring" }}
-                className="inline-flex items-center gap-3 mb-6"
-              >
-                <div className="p-3 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl">
-                  {selectedOption === 'vegetables-fruits' ? 
-                    <Package className="w-8 h-8 text-white" /> : 
-                    <Apple className="w-8 h-8 text-white" />
-                  }
-                </div>
-                <span className="text-green-300 font-semibold text-sm uppercase tracking-wider">
-                  Choose Your Basket
-                </span>
-              </motion.div>
-
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-8">
+              <h1 className="text-black text-3xl md:text-4xl font-serif italic leading-tight mb-8">
                 {selectedOption === 'vegetables-fruits' ? 
                   'Basket of Vegetables and Fruits' : 
                   'Box of Fruits'
@@ -119,28 +78,38 @@ const BasketPage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="text-xl text-green-100/80"
+                className="text-black text-3xl md:text-4xl font-serif italic leading-tight mb-8"
               >
                 {selectedOption === 'vegetables-fruits' ? 
                   'Fresh organic vegetables and fruits delivered to your doorstep' :
-                  'Organic fruit baskets delivered to your home. Free weekly delivery throughout Switzerland.'
+                  'Organic fruit baskets delivered to your home.'
                 }
               </motion.p>
             </motion.div>
 
             {/* Option Selector */}
-            <motion.div
+            
+          </div>
+        </div>
+      </section>
+
+      {/* Main Content */}
+      <section className="py-20 bg-gradient-to-b from-white to-blue-50">
+        <div className="container mx-auto px-4">
+          <form onSubmit={handleSubmit}>
+            <div className="max-w-6xl mx-auto">
+              <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="inline-flex p-1 bg-green-800/30 rounded-2xl mb-12"
+              className="inline-flex p-1 bg-blue-800/30 backdrop-blur-sm rounded-2xl mb-12"
             >
               <button
                 onClick={() => setSelectedOption('vegetables-fruits')}
                 className={`px-6 py-3 rounded-xl font-medium transition-all ${
                   selectedOption === 'vegetables-fruits'
-                    ? 'bg-gradient-to-r from-green-500 to-emerald-600 text-white shadow-lg'
-                    : 'text-green-200 hover:text-white hover:bg-green-800/50'
+                    ? 'bg-gradient-to-r from-blue-500 to-cyan-600 text-white shadow-lg'
+                    : 'text-blue-200 hover:text-white hover:bg-blue-800/50'
                 }`}
               >
                 <div className="flex items-center gap-2">
@@ -152,8 +121,8 @@ const BasketPage = () => {
                 onClick={() => setSelectedOption('fruits-only')}
                 className={`px-6 py-3 rounded-xl font-medium transition-all ${
                   selectedOption === 'fruits-only'
-                    ? 'bg-gradient-to-r from-green-500 to-emerald-600 text-white shadow-lg'
-                    : 'text-green-200 hover:text-white hover:bg-green-800/50'
+                    ? 'bg-gradient-to-r from-blue-500 to-cyan-600 text-white shadow-lg'
+                    : 'text-blue-200 hover:text-white hover:bg-blue-800/50'
                 }`}
               >
                 <div className="flex items-center gap-2">
@@ -162,15 +131,6 @@ const BasketPage = () => {
                 </div>
               </button>
             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Main Content */}
-      <section className="py-20 bg-gradient-to-b from-white to-green-50">
-        <div className="container mx-auto px-4">
-          <form onSubmit={handleSubmit}>
-            <div className="max-w-6xl mx-auto">
               {/* Step 1: Configuration */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
@@ -178,43 +138,43 @@ const BasketPage = () => {
                 className="mb-16"
               >
                 <div className="flex items-center gap-3 mb-8">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-r from-green-500 to-emerald-600 flex items-center justify-center text-white font-bold">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-cyan-600 flex items-center justify-center text-white font-bold">
                     1
                   </div>
-                  <h2 className="text-3xl font-bold text-green-900">
+                  <h2 className="text-3xl font-bold text-gray-900">
                     What's the right basket for me?
                   </h2>
                 </div>
-                <p className="text-green-700/70 mb-8">
+                <p className="text-gray-600 mb-8">
                   Configure to suit your needs
                 </p>
 
                 {/* Configuration Form */}
                 <div className="grid lg:grid-cols-2 gap-8">
                   {/* Household Size */}
-                  <div className="bg-white rounded-2xl p-8 shadow-lg border border-green-200/50">
+                  <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
                     <div className="flex items-center gap-3 mb-6">
-                      <Users className="w-6 h-6 text-green-600" />
-                      <h3 className="text-xl font-bold text-green-900">Household size</h3>
+                      <Users className="w-6 h-6 text-blue-600" />
+                      <h3 className="text-xl font-bold text-gray-900">Household size</h3>
                     </div>
 
                     <div className="space-y-6">
                       <div>
-                        <Label className="text-green-700 mb-4 block">Number of adults</Label>
+                        <Label className="text-gray-700 mb-4 block">Number of adults</Label>
                         <div className="flex items-center gap-4">
                           <Button
                             type="button"
                             variant="outline"
-                            className="w-12 h-12 rounded-full border-green-300 text-green-700 hover:bg-green-50"
+                            className="w-12 h-12 rounded-full border-gray-300 text-gray-700 hover:bg-gray-50"
                             onClick={() => setHouseholdSize(prev => ({ ...prev, adults: Math.max(1, prev.adults - 1) }))}
                           >
                             -
                           </Button>
-                          <div className="text-3xl font-bold text-green-900">{householdSize.adults}</div>
+                          <div className="text-3xl font-bold text-gray-900">{householdSize.adults}</div>
                           <Button
                             type="button"
                             variant="outline"
-                            className="w-12 h-12 rounded-full border-green-300 text-green-700 hover:bg-green-50"
+                            className="w-12 h-12 rounded-full border-gray-300 text-gray-700 hover:bg-gray-50"
                             onClick={() => setHouseholdSize(prev => ({ ...prev, adults: prev.adults + 1 }))}
                           >
                             +
@@ -223,21 +183,21 @@ const BasketPage = () => {
                       </div>
 
                       <div>
-                        <Label className="text-green-700 mb-4 block">Number of children</Label>
+                        <Label className="text-gray-700 mb-4 block">Number of children</Label>
                         <div className="flex items-center gap-4">
                           <Button
                             type="button"
                             variant="outline"
-                            className="w-12 h-12 rounded-full border-green-300 text-green-700 hover:bg-green-50"
+                            className="w-12 h-12 rounded-full border-gray-300 text-gray-700 hover:bg-gray-50"
                             onClick={() => setHouseholdSize(prev => ({ ...prev, children: Math.max(0, prev.children - 1) }))}
                           >
                             -
                           </Button>
-                          <div className="text-3xl font-bold text-green-900">{householdSize.children}</div>
+                          <div className="text-3xl font-bold text-gray-900">{householdSize.children}</div>
                           <Button
                             type="button"
                             variant="outline"
-                            className="w-12 h-12 rounded-full border-green-300 text-green-700 hover:bg-green-50"
+                            className="w-12 h-12 rounded-full border-gray-300 text-gray-700 hover:bg-gray-50"
                             onClick={() => setHouseholdSize(prev => ({ ...prev, children: prev.children + 1 }))}
                           >
                             +
@@ -248,16 +208,16 @@ const BasketPage = () => {
                   </div>
 
                   {/* Eating Habits */}
-                  <div className="bg-white rounded-2xl p-8 shadow-lg border border-green-200/50">
+                  <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
                     <div className="flex items-center gap-3 mb-6">
-                      <Leaf className="w-6 h-6 text-green-600" />
-                      <h3 className="text-xl font-bold text-green-900">Eating habits</h3>
+                      <Leaf className="w-6 h-6 text-blue-600" />
+                      <h3 className="text-xl font-bold text-gray-900">Eating habits</h3>
                     </div>
 
                     {selectedOption === 'vegetables-fruits' ? (
                       <div className="space-y-6">
                         <div>
-                          <Label className="text-green-700 mb-4 block">Type of diet</Label>
+                          <Label className="text-gray-700 mb-4 block">Type of diet</Label>
                           <RadioGroup
                             value={dietType}
                             onValueChange={setDietType}
@@ -267,34 +227,34 @@ const BasketPage = () => {
                               <RadioGroupItem value="vegan" id="vegan" className="peer sr-only" />
                               <Label
                                 htmlFor="vegan"
-                                className="flex flex-col items-center justify-between rounded-lg border-2 border-green-300 bg-white p-4 hover:bg-green-50 peer-data-[state=checked]:border-green-500 peer-data-[state=checked]:bg-green-50 cursor-pointer"
+                                className="flex flex-col items-center justify-between rounded-lg border-2 border-gray-300 bg-white p-4 hover:bg-gray-50 peer-data-[state=checked]:border-blue-500 peer-data-[state=checked]:bg-blue-50 cursor-pointer"
                               >
-                                <span className="font-medium text-green-900">Vegan</span>
+                                <span className="font-medium text-gray-900">Vegan</span>
                               </Label>
                             </div>
                             <div>
                               <RadioGroupItem value="vegetarian" id="vegetarian" className="peer sr-only" />
                               <Label
                                 htmlFor="vegetarian"
-                                className="flex flex-col items-center justify-between rounded-lg border-2 border-green-300 bg-white p-4 hover:bg-green-50 peer-data-[state=checked]:border-green-500 peer-data-[state=checked]:bg-green-50 cursor-pointer"
+                                className="flex flex-col items-center justify-between rounded-lg border-2 border-gray-300 bg-white p-4 hover:bg-gray-50 peer-data-[state=checked]:border-blue-500 peer-data-[state=checked]:bg-blue-50 cursor-pointer"
                               >
-                                <span className="font-medium text-green-900">Vegetarian</span>
+                                <span className="font-medium text-gray-900">Vegetarian</span>
                               </Label>
                             </div>
                             <div>
                               <RadioGroupItem value="omnivore" id="omnivore" className="peer sr-only" />
                               <Label
                                 htmlFor="omnivore"
-                                className="flex flex-col items-center justify-between rounded-lg border-2 border-green-300 bg-white p-4 hover:bg-green-50 peer-data-[state=checked]:border-green-500 peer-data-[state=checked]:bg-green-50 cursor-pointer"
+                                className="flex flex-col items-center justify-between rounded-lg border-2 border-gray-300 bg-white p-4 hover:bg-gray-50 peer-data-[state=checked]:border-blue-500 peer-data-[state=checked]:bg-blue-50 cursor-pointer"
                               >
-                                <span className="font-medium text-green-900">Omnivore</span>
+                                <span className="font-medium text-gray-900">Omnivore</span>
                               </Label>
                             </div>
                           </RadioGroup>
                         </div>
 
                         <div>
-                          <Label className="text-green-700 mb-4 block">
+                          <Label className="text-gray-700 mb-4 block">
                             Frequency of meals per week at home (lunch, dinner)
                           </Label>
                           <div className="space-y-4">
@@ -305,7 +265,7 @@ const BasketPage = () => {
                               step={2}
                               className="w-full"
                             />
-                            <div className="flex justify-between text-sm text-green-700">
+                            <div className="flex justify-between text-sm text-gray-600">
                               <span>2</span>
                               <span>4</span>
                               <span>6</span>
@@ -319,7 +279,7 @@ const BasketPage = () => {
                       </div>
                     ) : (
                       <div>
-                        <Label className="text-green-700 mb-4 block">Fruits per day (per person)</Label>
+                        <Label className="text-gray-700 mb-4 block">Fruits per day (per person)</Label>
                         <div className="grid grid-cols-4 gap-3">
                           {[2, 3, 4, 5].map((amount) => (
                             <button
@@ -328,12 +288,12 @@ const BasketPage = () => {
                               onClick={() => setFruitsPerDay(amount)}
                               className={`flex flex-col items-center justify-center rounded-xl border-2 p-4 transition-all ${
                                 fruitsPerDay === amount
-                                  ? 'border-green-500 bg-green-50'
-                                  : 'border-green-300 hover:border-green-400 hover:bg-green-50'
+                                  ? 'border-blue-500 bg-blue-50'
+                                  : 'border-gray-300 hover:border-blue-400 hover:bg-blue-50'
                               }`}
                             >
-                              <span className="text-2xl font-bold text-green-900">{amount}</span>
-                              <span className="text-sm text-green-700">/ day</span>
+                              <span className="text-2xl font-bold text-gray-900">{amount}</span>
+                              <span className="text-sm text-gray-600">/ day</span>
                             </button>
                           ))}
                         </div>
@@ -343,18 +303,18 @@ const BasketPage = () => {
                 </div>
 
                 {/* Basket Selection */}
-                <div className="mt-8 bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 border-2 border-green-200">
+                <div className="mt-8 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8 border-2 border-blue-100">
                   <div className="flex items-center justify-between mb-6">
                     <div>
-                      <h3 className="text-xl font-bold text-green-900">
+                      <h3 className="text-xl font-bold text-gray-900">
                         {selectedOption === 'vegetables-fruits' ? 'A. Choose basket size' : 'Choose my basket'}
                       </h3>
-                      <p className="text-green-700/70">
+                      <p className="text-gray-600">
                         {selectedOption === 'vegetables-fruits' ? 'Our recommendation based on your preferences' : 'Select the perfect fruit basket size'}
                       </p>
                     </div>
                     {selectedOption === 'vegetables-fruits' && (
-                      <div className="flex items-center gap-2 text-green-700">
+                      <div className="flex items-center gap-2 text-blue-700">
                         <Star className="w-5 h-5 fill-amber-400 text-amber-400" />
                         <span className="font-medium">Recommended</span>
                       </div>
@@ -369,12 +329,12 @@ const BasketPage = () => {
                         onClick={() => setSelectedBasketSize(basket.id)}
                         className={`cursor-pointer rounded-xl p-6 border-2 transition-all ${
                           selectedBasketSize === basket.id
-                            ? 'border-emerald-500 bg-white shadow-lg'
-                            : 'border-green-200 hover:border-green-300 hover:shadow-md'
+                            ? 'border-blue-500 bg-white shadow-lg'
+                            : 'border-gray-200 hover:border-blue-300 hover:shadow-md'
                         }`}
                       >
                         {basket.recommended && selectedOption === 'vegetables-fruits' && (
-                          <div className="absolute -top-2 left-1/2 -translate-x-1/2 px-3 py-1 bg-gradient-to-r from-emerald-500 to-green-500 text-white text-xs font-bold rounded-full">
+                          <div className="absolute -top-2 left-1/2 -translate-x-1/2 px-3 py-1 bg-gradient-to-r from-blue-500 to-cyan-500 text-white text-xs font-bold rounded-full">
                             Our recommendation
                           </div>
                         )}
@@ -384,40 +344,40 @@ const BasketPage = () => {
                         )}
 
                         <div className="mb-4">
-                          <h4 className="text-xl font-bold text-green-900 mb-2">{basket.name}</h4>
+                          <h4 className="text-xl font-bold text-gray-900 mb-2">{basket.name}</h4>
                           <div className="flex items-baseline gap-2">
-                            <span className="text-2xl font-bold text-green-900">
+                            <span className="text-2xl font-bold text-gray-900">
                               CHF {selectedOption === 'vegetables-fruits' ? basket.price : basket.price}.–
                             </span>
                             {selectedOption === 'vegetables-fruits' && (
-                              <span className="text-green-700">/ {basket.weight}</span>
+                              <span className="text-gray-600">/ {basket.weight}</span>
                             )}
                           </div>
                         </div>
 
                         <div className="space-y-3">
-                          <div className="flex items-center gap-2 text-sm text-green-700">
-                            <Leaf className="w-4 h-4 text-green-500" />
+                          <div className="flex items-center gap-2 text-sm text-gray-600">
+                            <Leaf className="w-4 h-4 text-blue-500" />
                             <span>100% organic {selectedOption === 'vegetables-fruits' ? 'fruits & vegetables' : 'fruits'}</span>
                           </div>
-                          <div className="flex items-center gap-2 text-sm text-green-700">
-                            <Truck className="w-4 h-4 text-green-500" />
+                          <div className="flex items-center gap-2 text-sm text-gray-600">
+                            <Truck className="w-4 h-4 text-blue-500" />
                             <span>Free delivery included</span>
                           </div>
-                          <div className="flex items-center gap-2 text-sm text-green-700">
-                            <Package className="w-4 h-4 text-green-500" />
+                          <div className="flex items-center gap-2 text-sm text-gray-600">
+                            <Package className="w-4 h-4 text-blue-500" />
                             <span>{basket.description}</span>
                           </div>
                         </div>
 
                         {selectedOption === 'vegetables-fruits' && (
-                          <div className="mt-6 pt-6 border-t border-green-200">
+                          <div className="mt-6 pt-6 border-t border-gray-200">
                             <div className="text-center">
-                              <div className="text-sm text-green-700 mb-1">Budget:</div>
-                              <div className="text-lg font-bold text-green-900">
+                              <div className="text-sm text-gray-600 mb-1">Budget:</div>
+                              <div className="text-lg font-bold text-gray-900">
                                 CHF {basket.weeklyPrice}/week
                               </div>
-                              <div className="text-sm text-green-700">
+                              <div className="text-sm text-gray-600">
                                 That's a basket of CHF {basket.price}.– delivered every 2 weeks
                               </div>
                             </div>
@@ -441,8 +401,8 @@ const BasketPage = () => {
 
                 {/* Frequency Selection (Vegetables & Fruits only) */}
                 {selectedOption === 'vegetables-fruits' && (
-                  <div className="mt-8 bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 border-2 border-green-200">
-                    <h3 className="text-xl font-bold text-green-900 mb-6">B. Choose basket sending frequency</h3>
+                  <div className="mt-8 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8 border-2 border-blue-100">
+                    <h3 className="text-xl font-bold text-gray-900 mb-6">B. Choose basket sending frequency</h3>
                     
                     <div className="grid md:grid-cols-3 gap-6">
                       {frequencies.map((frequency) => (
@@ -452,17 +412,17 @@ const BasketPage = () => {
                           onClick={() => setSelectedFrequency(frequency.id)}
                           className={`cursor-pointer rounded-xl p-6 border-2 transition-all ${
                             selectedFrequency === frequency.id
-                              ? 'border-emerald-500 bg-white shadow-lg'
-                              : 'border-green-200 hover:border-green-300 hover:shadow-md'
+                              ? 'border-blue-500 bg-white shadow-lg'
+                              : 'border-gray-200 hover:border-blue-300 hover:shadow-md'
                           }`}
                         >
-                          <h4 className="text-lg font-bold text-green-900 mb-4">{frequency.name}</h4>
+                          <h4 className="text-lg font-bold text-gray-900 mb-4">{frequency.name}</h4>
                           
                           <div className="text-center mb-4">
-                            <div className="text-2xl font-bold text-green-900">
+                            <div className="text-2xl font-bold text-gray-900">
                               CHF {frequency.weeklyPrice}/week
                             </div>
-                            <div className="text-sm text-green-700">
+                            <div className="text-sm text-gray-600">
                               {frequency.description}
                             </div>
                           </div>
@@ -482,155 +442,19 @@ const BasketPage = () => {
                 )}
               </motion.div>
 
-              {/* Step 2: Delivery Preferences */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 }}
-                className="mb-16"
-              >
-                <div className="flex items-center gap-3 mb-8">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-r from-green-500 to-emerald-600 flex items-center justify-center text-white font-bold">
-                    2
-                  </div>
-                  <h2 className="text-3xl font-bold text-green-900">Delivery preferences</h2>
-                </div>
-
-                <div className="grid lg:grid-cols-2 gap-8">
-                  <div className="bg-white rounded-2xl p-8 shadow-lg border border-green-200/50">
-                    <div className="flex items-center gap-3 mb-6">
-                      <Truck className="w-6 h-6 text-green-600" />
-                      <h3 className="text-xl font-bold text-green-900">Delivery</h3>
-                    </div>
-
-                    <div className="space-y-6">
-                      <div>
-                        <Label className="text-green-700 mb-3 block">Preferred delivery day</Label>
-                        <Select value={deliveryDay} onValueChange={setDeliveryDay}>
-                          <SelectTrigger className="border-green-300">
-                            <SelectValue />
-                          </SelectTrigger>
-                          <SelectContent>
-                            {['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'].map((day) => (
-                              <SelectItem key={day} value={day}>{day}</SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                      </div>
-
-                      <div>
-                        <Label className="text-green-700 mb-3 block">First delivery date</Label>
-                        <div className="relative">
-                          <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-green-400" />
-                          <Input
-                            type="date"
-                            value={firstDeliveryDate}
-                            onChange={(e) => setFirstDeliveryDate(e.target.value)}
-                            className="pl-10 border-green-300"
-                          />
-                        </div>
-                        <p className="text-green-700/60 text-sm mt-2">
-                          {new Date(firstDeliveryDate).toLocaleDateString('en-US', { 
-                            weekday: 'long', 
-                            year: 'numeric', 
-                            month: 'long', 
-                            day: 'numeric' 
-                          })}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Order Summary */}
-                  <div className="bg-gradient-to-br from-green-600 to-emerald-700 rounded-2xl p-8 text-white">
-                    <h3 className="text-xl font-bold mb-6">Order Summary</h3>
-                    
-                    <div className="space-y-4">
-                      <div className="flex justify-between items-center pb-4 border-b border-green-400/30">
-                        <span>Selected Basket</span>
-                        <span className="font-bold">
-                          {selectedOption === 'vegetables-fruits' 
-                            ? basketSizes.find(b => b.id === selectedBasketSize)?.name
-                            : fruitBaskets.find(b => b.id === selectedBasketSize)?.name
-                          }
-                        </span>
-                      </div>
-                      
-                      <div className="flex justify-between items-center pb-4 border-b border-green-400/30">
-                        <span>Frequency</span>
-                        <span className="font-bold">
-                          {selectedOption === 'vegetables-fruits'
-                            ? frequencies.find(f => f.id === selectedFrequency)?.name
-                            : 'Weekly'
-                          }
-                        </span>
-                      </div>
-                      
-                      <div className="flex justify-between items-center pb-4 border-b border-green-400/30">
-                        <span>Delivery Day</span>
-                        <span className="font-bold">{deliveryDay}</span>
-                      </div>
-                      
-                      <div className="flex justify-between items-center pt-4 border-t border-green-400/30">
-                        <span className="text-lg">Total Weekly Cost</span>
-                        <span className="text-2xl font-bold">
-                          CHF {
-                            selectedOption === 'vegetables-fruits'
-                              ? frequencies.find(f => f.id === selectedFrequency)?.weeklyPrice
-                              : (fruitBaskets.find(b => b.id === selectedBasketSize)?.price || 0) / 4
-                          }
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="mt-8 space-y-3">
-                      {[
-                        "Free carbon-neutral delivery",
-                        "100% organic produce",
-                        "Pause or cancel anytime",
-                        "Weekly recipe suggestions"
-                      ].map((feature) => (
-                        <div key={feature} className="flex items-center gap-3 text-green-100/80">
-                          <Check className="w-4 h-4" />
-                          {feature}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* CTA */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="text-center"
-              >
-                <Button
-                  type="submit"
-                  size="lg"
-                  className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 shadow-lg px-12"
-                >
-                  <Heart className="w-5 h-5 mr-2" />
-                  Start Your Organic Journey
-                  <ChevronRight className="w-5 h-5 ml-2" />
-                </Button>
-                <p className="text-green-700/60 mt-4">
-                  No commitment • Cancel anytime • First delivery in 3-5 days
-                </p>
-              </motion.div>
+              
+              
             </div>
           </form>
         </div>
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-gradient-to-b from-green-50 to-white">
+      <section className="py-20 bg-gradient-to-b from-blue-50 to-white">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-bold text-green-900 mb-4">Why Choose Our Baskets</h2>
-            <p className="text-green-700/70">Experience the difference with our organic produce</p>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Why Choose Our Baskets</h2>
+            <p className="text-gray-600">Experience the difference with our organic produce</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -672,11 +496,11 @@ const BasketPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white rounded-2xl p-6 shadow-lg border border-green-200/50 text-center"
+                className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200 text-center"
               >
                 <div className="text-4xl mb-4">{benefit.icon}</div>
-                <h3 className="font-bold text-green-900 mb-2">{benefit.title}</h3>
-                <p className="text-green-700/80 text-sm">{benefit.description}</p>
+                <h3 className="font-bold text-gray-900 mb-2">{benefit.title}</h3>
+                <p className="text-gray-600 text-sm">{benefit.description}</p>
               </motion.div>
             ))}
           </div>

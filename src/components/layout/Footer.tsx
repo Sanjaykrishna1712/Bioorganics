@@ -18,13 +18,13 @@ const footerLinks = {
 
 export const Footer = () => {
   return (
-    <footer className="bg-gradient-to-b from-green-900 to-emerald-950 text-white py-16 relative overflow-hidden">
+    <footer className="bg-gradient-to-b from-lime-50 to-emerald-50 text-emerald-900 py-16 relative overflow-hidden border-t border-emerald-100">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(10)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-2 h-2 bg-green-400/20 rounded-full"
+            className="absolute w-2 h-2 bg-emerald-300/40 rounded-full"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -51,17 +51,17 @@ export const Footer = () => {
               whileHover={{ scale: 1.05 }}
             >
               <motion.div 
-                className="p-2 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg"
+                className="p-2 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-lg shadow-sm"
                 animate={{ rotate: [0, 360] }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
               >
-                <Leaf className="w-6 h-6" />
+                <Leaf className="w-6 h-6 text-white" />
               </motion.div>
-              <span className="font-serif text-2xl font-bold italic leading-tight">
+              <span className="font-serif text-2xl font-bold italic leading-tight text-emerald-800">
                 Bio<br/>Organics
               </span>
             </motion.div>
-            <p className="text-green-200/80 text-sm leading-relaxed">
+            <p className="text-emerald-700/80 text-sm leading-relaxed">
               Making organic accessible to all,<br />
               while reducing food waste.
             </p>
@@ -69,7 +69,7 @@ export const Footer = () => {
 
           {/* Discover */}
           <div>
-            <h4 className="font-semibold mb-4 text-green-100">Discover</h4>
+            <h4 className="font-semibold mb-4 text-emerald-800">Discover</h4>
             <ul className="space-y-3">
               {footerLinks.discover.map((link, index) => (
                 <motion.li 
@@ -81,9 +81,9 @@ export const Footer = () => {
                 >
                   <Link
                     to={link.href}
-                    className="text-green-200/60 hover:text-green-100 transition-all duration-300 hover:pl-2 block group"
+                    className="text-emerald-700/70 hover:text-emerald-800 transition-all duration-300 hover:pl-2 block group"
                   >
-                    <span className="opacity-0 group-hover:opacity-100 text-green-400 mr-2 transition-opacity">→</span>
+                    <span className="opacity-0 group-hover:opacity-100 text-emerald-500 mr-2 transition-opacity">→</span>
                     {link.name}
                   </Link>
                 </motion.li>
@@ -93,7 +93,7 @@ export const Footer = () => {
 
           {/* More */}
           <div>
-            <h4 className="font-semibold mb-4 text-green-100">More</h4>
+            <h4 className="font-semibold mb-4 text-emerald-800">More</h4>
             <ul className="space-y-3">
               {footerLinks.more.map((link, index) => (
                 <motion.li 
@@ -105,9 +105,9 @@ export const Footer = () => {
                 >
                   <Link
                     to={link.href}
-                    className="text-green-200/60 hover:text-green-100 transition-all duration-300 hover:pl-2 block group"
+                    className="text-emerald-700/70 hover:text-emerald-800 transition-all duration-300 hover:pl-2 block group"
                   >
-                    <span className="opacity-0 group-hover:opacity-100 text-green-400 mr-2 transition-opacity">→</span>
+                    <span className="opacity-0 group-hover:opacity-100 text-emerald-500 mr-2 transition-opacity">→</span>
                     {link.name}
                   </Link>
                 </motion.li>
@@ -117,9 +117,9 @@ export const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h4 className="font-semibold mb-4 text-green-100">Contact Us</h4>
+            <h4 className="font-semibold mb-4 text-emerald-800">Contact Us</h4>
             <motion.div 
-              className="text-green-200/60 text-sm space-y-2"
+              className="text-emerald-700/70 text-sm space-y-2"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
@@ -131,7 +131,7 @@ export const Footer = () => {
               <p className="pt-2">
                 <motion.a 
                   href="mailto:info@bioorganics.ch" 
-                  className="hover:text-green-100 transition-colors inline-block"
+                  className="hover:text-emerald-800 transition-colors inline-block font-medium"
                   whileHover={{ scale: 1.05 }}
                 >
                   info@bioorganics.ch
@@ -143,7 +143,7 @@ export const Footer = () => {
 
         {/* Social Links */}
         <motion.div 
-          className="mt-12 pt-8 border-t border-green-700/50"
+          className="mt-12 pt-8 border-t border-emerald-200"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -152,7 +152,7 @@ export const Footer = () => {
             <div className="flex items-center gap-6">
               <motion.a 
                 href="#" 
-                className="text-green-200/60 hover:text-green-100 transition-all duration-300"
+                className="text-emerald-700/70 hover:text-emerald-800 transition-all duration-300"
                 whileHover={{ scale: 1.2, rotate: 5 }}
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -161,7 +161,7 @@ export const Footer = () => {
               </motion.a>
               <motion.a 
                 href="#" 
-                className="text-green-200/60 hover:text-green-100 transition-all duration-300"
+                className="text-emerald-700/70 hover:text-emerald-800 transition-all duration-300"
                 whileHover={{ scale: 1.2, rotate: -5 }}
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -170,7 +170,7 @@ export const Footer = () => {
               </motion.a>
               <motion.a 
                 href="#" 
-                className="text-green-200/60 hover:text-green-100 transition-all duration-300"
+                className="text-emerald-700/70 hover:text-emerald-800 transition-all duration-300"
                 whileHover={{ scale: 1.2, rotate: 5 }}
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -179,19 +179,19 @@ export const Footer = () => {
               </motion.a>
             </div>
             
-            <div className="flex items-center gap-6 text-sm text-green-200/60">
+            <div className="flex items-center gap-6 text-sm text-emerald-700/70">
               <motion.div whileHover={{ scale: 1.05 }}>
-                <Link to="/terms" className="hover:text-green-100 transition-colors">
+                <Link to="/terms" className="hover:text-emerald-800 transition-colors">
                   Terms & conditions
                 </Link>
               </motion.div>
               <motion.div whileHover={{ scale: 1.05 }}>
-                <Link to="/privacy" className="hover:text-green-100 transition-colors">
+                <Link to="/privacy" className="hover:text-emerald-800 transition-colors">
                   Privacy policy
                 </Link>
               </motion.div>
               <motion.div whileHover={{ scale: 1.05 }}>
-                <Link to="/contact" className="hover:text-green-100 transition-colors">
+                <Link to="/contact" className="hover:text-emerald-800 transition-colors">
                   Contact us
                 </Link>
               </motion.div>
@@ -199,7 +199,7 @@ export const Footer = () => {
           </div>
           
           <motion.p 
-            className="text-center text-green-200/40 text-xs mt-8"
+            className="text-center text-emerald-700/50 text-xs mt-8"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}

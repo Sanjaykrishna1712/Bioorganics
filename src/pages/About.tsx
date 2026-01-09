@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Layout } from "@/components/layout/Layout";
-import { Leaf, Heart, Users, Truck, Target, Globe, Award, Clock, TrendingUp, ChevronRight } from "lucide-react";
-import farmerImage from "@/assets/farmer-portrait.jpg";
+import { Leaf, Heart, Users, Truck, Target, Globe, Award, Clock, TrendingUp, ChevronRight, Star, Target as MissionIcon, Eye as VisionIcon, Compass } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
@@ -10,28 +9,28 @@ const values = [
     icon: Leaf,
     title: "100% Organic",
     description: "Every product is certified organic. No pesticides, no chemicals — just nature's best.",
-    color: "from-green-400 to-emerald-500",
+    color: "from-[#CD98ED] to-purple-500",
     stat: "500+ Products"
   },
   {
     icon: Heart,
     title: "Fighting Food Waste",
     description: "We save produce that would otherwise go to waste, giving it the appreciation it deserves.",
-    color: "from-rose-400 to-pink-500",
+    color: "from-[#CD98ED]/80 to-purple-400",
     stat: "30% Less Waste"
   },
   {
     icon: Users,
     title: "Supporting Local Farmers",
     description: "Fair prices for farmers, fresh produce for you. We build lasting partnerships.",
-    color: "from-amber-400 to-orange-500",
+    color: "from-[#CD98ED]/80 to-purple-400",
     stat: "120+ Farmers"
   },
   {
     icon: Truck,
     title: "Carbon Neutral Delivery",
     description: "Straight to your door, on your schedule. Our delivery fleet is 100% carbon neutral.",
-    color: "from-blue-400 to-cyan-500",
+    color: "from-[#CD98ED]/70 to-purple-400",
     stat: "Zero Emissions"
   },
 ];
@@ -94,532 +93,309 @@ const teamMembers = [
 const About = () => {
   return (
     <Layout>
-      {/* Hero Section with 3D effect */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-green-900 via-emerald-900 to-green-950 py-24">
-        {/* Animated background pattern */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute inset-0" style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E")`,
-              backgroundSize: '120px 120px',
-            }} />
-          </div>
-          
-          {/* Floating elements */}
-          {[...Array(15)].map((_, i) => (
+      {/* Hero Section */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#F694C3] to-[#F694C3] py-12 rounded-b-[60px]">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
             <motion.div
-              key={i}
-              className="absolute text-green-300/20"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                fontSize: `${30 + Math.random() * 50}px`,
-              }}
-              animate={{
-                y: [0, -100, 0],
-                rotate: [0, 360],
-                scale: [1, 1.3, 1],
-              }}
-              transition={{
-                duration: 20 + Math.random() * 20,
-                repeat: Infinity,
-                delay: Math.random() * 15,
-              }}
-            >
-              🍃
-            </motion.div>
-          ))}
-        </div>
-
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
               className="space-y-8"
             >
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.2, type: "spring" }}
-                className="inline-flex items-center gap-3"
-              >
-                <div className="p-3 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl">
-                  <Leaf className="w-8 h-8 text-white" />
-                </div>
-                <span className="text-green-300 font-semibold text-sm uppercase tracking-wider">
-                  Our Story
-                </span>
-              </motion.div>
-
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white leading-tight">
-                Food that nourishes
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-emerald-300">
-                  life itself
-                </span>
+              <h1 className="text-4xl md:text-5xl font-serif font-bold mb-6 leading-tight">
+                <span className="text-[#3A0F2E]">Food that nourishes</span>
+                <span className="block text-white">life itself</span>
               </h1>
               
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="text-xl text-green-100/80"
+                className="text-black text-3xl md:text-4xl font-serif italic leading-tight mb-8"
               >
-                We blend the wisdom of nature with modern biological science — cultivating 
-                food in biologically alive soils, built not on chemicals, but on life itself.
+                "We blend the wisdom of nature with modern biological science — cultivating 
+                food in biologically alive soils, built not on chemicals, but on life itself."
               </motion.p>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                className="flex flex-wrap gap-4 pt-4"
-              >
-                <Button
-                  size="lg"
-                  className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 shadow-lg"
-                >
-                  Meet Our Team
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-green-300 text-green-100 hover:bg-white/10"
-                >
-                  Watch Our Story
-                </Button>
-              </motion.div>
-            </motion.div>
-
-            {/* Right 3D Image */}
-            <motion.div
-              initial={{ opacity: 0, x: 50, rotateY: 30 }}
-              animate={{ opacity: 1, x: 0, rotateY: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative perspective-1000"
-            >
-              <div className="relative group">
-                <motion.div
-                  className="relative rounded-3xl overflow-hidden shadow-2xl"
-                  whileHover={{ 
-                    rotateY: 10,
-                    rotateX: 5,
-                    scale: 1.02
-                  }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  <img
-                    src={farmerImage}
-                    alt="Our farmers"
-                    className="w-full h-auto rounded-3xl transform group-hover:scale-110 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-green-900/40 via-transparent to-transparent" />
-                </motion.div>
-
-                {/* Floating stats */}
-                <motion.div
-                  className="absolute -top-6 -left-6 bg-white p-4 rounded-2xl shadow-2xl"
-                  animate={{ 
-                    y: [0, -10, 0],
-                    rotate: [-5, 5, -5]
-                  }}
-                  transition={{ 
-                    duration: 4, 
-                    repeat: Infinity,
-                    ease: "easeInOut" 
-                  }}
-                >
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-green-700">7,900+</div>
-                    <div className="text-xs text-green-600 font-medium">Happy Customers</div>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  className="absolute -bottom-6 -right-6 bg-gradient-to-br from-green-500 to-emerald-600 text-white p-4 rounded-2xl shadow-2xl"
-                  animate={{ 
-                    y: [0, 10, 0],
-                    rotate: [5, -5, 5]
-                  }}
-                  transition={{ 
-                    duration: 5, 
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: 0.5
-                  }}
-                >
-                  <div className="text-center">
-                    <div className="text-2xl font-bold">120+</div>
-                    <div className="text-xs font-medium">Local Farms</div>
-                  </div>
-                </motion.div>
-
-                {/* Glow effect */}
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-green-400/20 to-emerald-400/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              </div>
+              
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Mission Section */}
-      <section className="py-20 bg-gradient-to-b from-white to-green-50">
+      {/* Mission & Vision Section */}
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Image with 3D effect */}
-            <motion.div
-              initial={{ opacity: 0, x: -50, rotateY: -20 }}
-              whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              className="relative perspective-1000"
-            >
-              <div className="relative group">
-                <motion.div
-                  className="rounded-3xl overflow-hidden shadow-2xl"
-                  whileHover={{ 
-                    rotateY: 15,
-                    rotateX: 5
-                  }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  <img
-                    src={farmerImage}
-                    alt="Our mission in action"
-                    className="w-full h-auto transform group-hover:scale-110 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-green-900/30 via-transparent to-transparent" />
-                </motion.div>
-
-                {/* Floating mission statement */}
-                <motion.div
-                  className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-white px-8 py-4 rounded-2xl shadow-2xl w-4/5"
-                  animate={{ 
-                    y: [0, -5, 0],
-                  }}
-                  transition={{ 
-                    duration: 3, 
-                    repeat: Infinity,
-                    ease: "easeInOut" 
-                  }}
-                >
-                  <div className="flex items-center gap-3">
-                    <Target className="w-6 h-6 text-green-600" />
-                    <div>
-                      <div className="text-sm font-bold text-green-900">Our Mission</div>
-                      <div className="text-xs text-green-700/70">Nourishing communities sustainably</div>
-                    </div>
-                  </div>
-                </motion.div>
-              </div>
-            </motion.div>
-
-            {/* Content */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              className="space-y-8"
-            >
-              <div>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                  className="inline-flex items-center gap-2 mb-6"
-                >
-                  <div className="p-2 bg-gradient-to-br from-green-100 to-emerald-100 rounded-lg">
-                    <Globe className="w-5 h-5 text-green-600" />
-                  </div>
-                  <span className="text-green-600 font-semibold text-sm uppercase tracking-wider">
-                    Our Vision
-                  </span>
-                </motion.div>
-                
-                <h2 className="text-4xl md:text-5xl font-serif font-bold text-green-900 mb-6">
-                  Redefining
-                  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-600">
-                    Food Systems
-                  </span>
-                </h2>
-              </div>
-
-              <div className="space-y-6">
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                  className="text-lg text-green-800/80 leading-relaxed"
-                >
-                  Imagine a world where every bite does more than satisfy hunger. A world where 
-                  food nourishes the body, fuels vitality, and quietly protects long-term health.
-                </motion.p>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                  className="bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-2xl border-2 border-green-200/50"
-                >
-                  <div className="flex items-start gap-4">
-                    <Leaf className="w-8 h-8 text-emerald-600 flex-shrink-0" />
-                    <div>
-                      <h3 className="text-xl font-bold mb-3 text-green-900">
-                        Clean food was not enough
-                      </h3>
-                      <p className="text-green-800/80">
-                        Because living nutrition was missing. Conventional farming, driven by 
-                        scale and speed, often leaves behind chemical residues that threaten 
-                        long-term well-being.
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 }}
-                  className="text-lg text-green-800/80 leading-relaxed"
-                >
-                  There had to be a better way — one that blends the wisdom of nature with modern 
-                  biological science. What emerges is not just food, but life itself: rich in 
-                  nutrients, bursting with flavor, and full of vitality.
-                </motion.p>
-              </div>
-
+          <div className="max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12">
+              {/* Mission Card */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
-                className="pt-6"
+                viewport={{ once: true }}
+                className="group"
               >
-                <Button
-                  size="lg"
-                  className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700"
-                  asChild
-                >
-                  <Link to="/impact" className="flex items-center gap-3">
-                    See Our Impact Report
-                    <ChevronRight className="w-4 h-4" />
-                  </Link>
-                </Button>
+                <div className="bg-gradient-to-br from-[#CD98ED]/5 to-purple-50 rounded-3xl p-8 h-full border border-[#CD98ED]/20 shadow-lg hover:shadow-xl transition-all duration-300">
+                  {/* Icon & Header */}
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="p-3 bg-gradient-to-br from-[#CD98ED] to-purple-500 rounded-xl text-white">
+                      <MissionIcon className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <span className="text-purple-600 font-semibold text-sm uppercase tracking-wider">
+                        Our Mission
+                      </span>
+                      <h2 className="text-2xl font-bold text-gray-900 mt-1">
+                        What Drives Us Forward
+                      </h2>
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="space-y-4">
+                    <p className="text-gray-700 text-lg leading-relaxed">
+                      To revolutionize the food system by connecting conscious consumers with local, 
+                      organic farmers through a sustainable, waste-free delivery network that nourishes 
+                      both people and the planet.
+                    </p>
+
+                    <div className="bg-white/50 p-5 rounded-xl border border-[#CD98ED]/10">
+                      <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
+                        <Compass className="w-4 h-4 text-[#CD98ED]" />
+                        Our Core Objectives
+                      </h3>
+                      <ul className="space-y-2 text-gray-700">
+                        {[
+                          "Eliminate food waste by saving 'imperfect' produce",
+                          "Create fair economic opportunities for local farmers",
+                          "Make organic food accessible to every household",
+                          "Build a carbon-neutral supply chain from farm to table",
+                          "Educate communities about sustainable agriculture"
+                        ].map((item, index) => (
+                          <li key={index} className="flex items-start gap-2">
+                            <div className="w-1.5 h-1.5 rounded-full bg-[#CD98ED] mt-2 flex-shrink-0" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="pt-4">
+                      
+                    </div>
+                  </div>
+                </div>
               </motion.div>
+
+              {/* Vision Card */}
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="group"
+              >
+                <div className="bg-gradient-to-br from-purple-50 to-[#CD98ED]/5 rounded-3xl p-8 h-full border border-purple-200 shadow-lg hover:shadow-xl transition-all duration-300">
+                  {/* Icon & Header */}
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="p-3 bg-gradient-to-br from-purple-600 to-[#CD98ED] rounded-xl text-white">
+                      <VisionIcon className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <span className="text-purple-600 font-semibold text-sm uppercase tracking-wider">
+                        Our Vision
+                      </span>
+                      <h2 className="text-2xl font-bold text-gray-900 mt-1">
+                        The Future We're Building
+                      </h2>
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="space-y-4">
+                    <p className="text-gray-700 text-lg leading-relaxed">
+                      To create a world where sustainable agriculture is the norm, every community 
+                      has access to nutrient-rich food, and our food systems regenerate rather than 
+                      deplete the Earth's resources.
+                    </p>
+
+                    <div className="bg-white/50 p-5 rounded-xl border border-purple-200">
+                      <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-2">
+                        <Star className="w-4 h-4 text-purple-600" />
+                        Long-term Aspirations
+                      </h3>
+                      <ul className="space-y-2 text-gray-700">
+                        {[
+                          "Establish regenerative farming practices across Europe by 2030",
+                          "Reduce food waste in Switzerland by 50% within 5 years",
+                          "Create a closed-loop packaging system with zero waste",
+                          "Develop educational programs for sustainable living",
+                          "Pioneer carbon-negative food delivery models"
+                        ].map((item, index) => (
+                          <li key={index} className="flex items-start gap-2">
+                            <div className="w-1.5 h-1.5 rounded-full bg-purple-600 mt-2 flex-shrink-0" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Connecting Statement */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              className="mt-12 text-center"
+            >
+              <div className="inline-block bg-gradient-to-r from-[#CD98ED]/20 to-purple-500/20 px-6 py-4 rounded-2xl border border-[#CD98ED]/30">
+                <p className="text-purple-600 font-semibold text-sm uppercase tracking-wider">
+                  "Our mission fuels today's actions. Our vision guides tomorrow's possibilities."
+                </p>
+              </div>
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* Values Section */}
-      <section className="py-20 bg-gradient-to-b from-green-50 to-white">
+      <section className="py-16 bg-gradient-to-b from-white to-purple-50/30">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
-            <div className="inline-flex items-center gap-3 mb-4">
-              <Award className="w-6 h-6 text-green-500" />
-              <span className="text-green-600 font-semibold text-sm uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 mb-4">
+              <Award className="w-5 h-5 text-[#CD98ED]" />
+              <span className="text-[#CD98ED] font-semibold text-sm uppercase tracking-wider">
                 Our Values
               </span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-green-900 mb-6">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
               What We
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-600">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#CD98ED] to-purple-500">
                 Stand For
               </span>
             </h2>
-            <p className="text-green-700/70 text-lg max-w-2xl mx-auto">
+            <p className="text-gray-600 max-w-2xl mx-auto">
               Four pillars that guide everything we do, from farm to table
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((value, index) => (
               <motion.div
                 key={value.title}
-                initial={{ opacity: 0, y: 50, scale: 0.95 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ 
-                  delay: index * 0.1,
-                  type: "spring",
-                  stiffness: 100
-                }}
+                transition={{ delay: index * 0.1 }}
                 whileHover={{ 
-                  y: -10,
+                  y: -8,
                   transition: { duration: 0.3 }
                 }}
                 className="group"
               >
-                <div className="bg-gradient-to-b from-white to-green-50 rounded-3xl p-8 shadow-lg hover:shadow-2xl border border-green-200/50 hover:border-green-300 h-full relative overflow-hidden">
-                  {/* Background gradient */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${value.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
-                  
+                <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl border border-gray-200 hover:border-gray-300 h-full transition-all duration-300">
                   {/* Icon */}
                   <motion.div 
-                    className={`inline-flex p-4 rounded-2xl mb-6 bg-gradient-to-br ${value.color} text-white`}
+                    className={`inline-flex p-3 rounded-xl mb-4 bg-gradient-to-br ${value.color} text-white`}
                     whileHover={{ rotate: 360 }}
                     transition={{ duration: 0.6 }}
                   >
-                    <value.icon className="w-8 h-8" />
+                    <value.icon className="w-6 h-6" />
                   </motion.div>
 
-                  <h3 className="text-xl font-bold text-green-900 mb-3">
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">
                     {value.title}
                   </h3>
                   
-                  <p className="text-green-700/80 text-sm mb-6 leading-relaxed">
+                  <p className="text-gray-600 text-sm mb-4 leading-relaxed">
                     {value.description}
                   </p>
                   
-                  <div className="pt-4 border-t border-green-200">
-                    <div className="text-lg font-bold text-green-900">{value.stat}</div>
+                  <div className="pt-4 border-t border-gray-200">
+                    <div className="font-bold text-gray-900">{value.stat}</div>
                   </div>
                 </div>
               </motion.div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Timeline Section */}
-      <section className="py-20 bg-gradient-to-b from-white to-green-50">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <div className="inline-flex items-center gap-3 mb-4">
-              <Clock className="w-6 h-6 text-green-500" />
-              <span className="text-green-600 font-semibold text-sm uppercase tracking-wider">
-                Our Journey
-              </span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-green-900 mb-6">
-              From Small Roots to
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-600">
-                National Impact
-              </span>
-            </h2>
-          </motion.div>
-
-          <div className="max-w-5xl mx-auto">
-            <div className="relative">
-              {/* Timeline line */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-green-400 via-emerald-500 to-green-400" />
-
-              {timeline.map((item, index) => (
-                <motion.div
-                  key={item.year}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.2 }}
-                  className={`flex ${index % 2 === 0 ? 'justify-start' : 'justify-end'} mb-16 last:mb-0`}
-                >
-                  <div className={`w-5/12 ${index % 2 === 0 ? 'pr-12 text-right' : 'pl-12'}`}>
-                    <div className="bg-gradient-to-b from-white to-green-50 rounded-3xl p-8 shadow-lg border border-green-200/50 relative group">
-                      {/* Connecting dot */}
-                      <div className={`absolute top-8 ${index % 2 === 0 ? '-right-6' : '-left-6'} w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg`}>
-                        {item.icon}
-                      </div>
-
-                      <div className="mb-4">
-                        <div className="text-2xl font-bold text-green-900 mb-2">{item.year}</div>
-                        <h3 className="text-xl font-bold text-green-900 mb-3">{item.title}</h3>
-                        <p className="text-green-700/80 mb-4">{item.description}</p>
-                      </div>
-
-                      <div className="space-y-2">
-                        {item.achievements.map((achievement, i) => (
-                          <div key={i} className="flex items-center gap-2 text-sm text-green-700">
-                            <div className="w-2 h-2 rounded-full bg-green-400" />
-                            <span>{achievement}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
 
       {/* Team Section */}
-      <section className="py-20 bg-gradient-to-b from-green-50 to-white">
+      <section className="py-16 bg-gradient-to-b from-white to-purple-50/30">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
-            <div className="inline-flex items-center gap-3 mb-4">
-              <Users className="w-6 h-6 text-green-500" />
-              <span className="text-green-600 font-semibold text-sm uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 mb-4">
+              <Users className="w-5 h-5 text-[#CD98ED]" />
+              <span className="text-[#CD98ED] font-semibold text-sm uppercase tracking-wider">
                 Our Team
               </span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-green-900 mb-6">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Meet the People
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-600">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#CD98ED] to-purple-500">
                 Behind the Produce
               </span>
             </h2>
-            <p className="text-green-700/70 text-lg max-w-2xl mx-auto">
+            <p className="text-gray-600 max-w-2xl mx-auto">
               Passionate individuals committed to sustainable agriculture and community wellbeing
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {teamMembers.map((member, index) => (
               <motion.div
                 key={member.name}
-                initial={{ opacity: 0, y: 50, scale: 0.95 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ 
-                  delay: index * 0.2,
-                  type: "spring",
-                  stiffness: 100
-                }}
+                transition={{ delay: index * 0.2 }}
                 whileHover={{ 
-                  y: -10,
+                  y: -8,
                   transition: { duration: 0.3 }
                 }}
                 className="group"
               >
-                <div className="bg-gradient-to-b from-white to-green-50 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl border border-green-200/50 hover:border-green-300 h-full">
+                <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl border border-gray-200 hover:border-gray-300 h-full transition-all duration-300">
                   {/* Image */}
                   <div className="aspect-square overflow-hidden relative">
                     <img
                       src={member.image}
                       alt={member.name}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-green-900/30 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
                   </div>
 
                   {/* Content */}
-                  <div className="p-8">
-                    <div className="mb-4">
-                      <h3 className="text-xl font-bold text-green-900 mb-1">{member.name}</h3>
-                      <div className="text-emerald-600 font-medium mb-2">{member.role}</div>
-                      <p className="text-green-700/70 text-sm mb-4">{member.bio}</p>
+                  <div className="p-6">
+                    <div className="mb-3">
+                      <h3 className="text-lg font-bold text-gray-900 mb-1">{member.name}</h3>
+                      <div className="text-[#CD98ED] font-medium mb-2">{member.role}</div>
+                      <p className="text-gray-600 text-sm mb-3">{member.bio}</p>
                     </div>
 
                     {/* Quote */}
-                    <div className="border-t border-green-200 pt-4">
-                      <div className="flex items-start gap-3">
-                        <div className="text-2xl text-green-400">"</div>
-                        <p className="text-green-800/80 italic text-sm">{member.quote}</p>
+                    <div className="border-t border-gray-200 pt-3">
+                      <div className="flex items-start gap-2">
+                        <div className="text-lg text-[#CD98ED]">"</div>
+                        <p className="text-gray-700 italic text-sm">{member.quote}</p>
                       </div>
                     </div>
                   </div>
@@ -630,86 +406,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-20 bg-gradient-to-r from-green-600 to-emerald-700 relative overflow-hidden">
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              { value: "7,900+", label: "Happy Families", icon: "🏡", color: "from-green-400 to-emerald-500" },
-              { value: "120+", label: "Local Farms", icon: "🚜", color: "from-lime-400 to-green-500" },
-              { value: "500+", label: "Organic Products", icon: "🥕", color: "from-amber-400 to-orange-500" },
-              { value: "30%", label: "Less Food Waste", icon: "♻️", color: "from-cyan-400 to-blue-500" },
-            ].map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="text-center"
-              >
-                <motion.div
-                  className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${stat.color} text-white text-3xl mb-4`}
-                  animate={{ 
-                    y: [0, -10, 0],
-                    rotate: [0, 5, 0, -5, 0]
-                  }}
-                  transition={{ 
-                    duration: 4, 
-                    repeat: Infinity,
-                    delay: index * 0.5
-                  }}
-                >
-                  {stat.icon}
-                </motion.div>
-                <div className="text-4xl font-bold text-white mb-2">{stat.value}</div>
-                <div className="text-green-100/80">{stat.label}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-b from-white to-green-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="inline-flex p-4 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl mb-6"
-            >
-              <TrendingUp className="w-8 h-8 text-white" />
-            </motion.div>
-            
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-green-900 mb-6">
-              Join Our Growing Community
-            </h2>
-            
-            <p className="text-green-700/80 text-lg mb-8">
-              Be part of the movement towards sustainable, organic living. 
-              Together, we're building a healthier future for people and planet.
-            </p>
-            
-            <div className="flex flex-wrap justify-center gap-4">
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 shadow-lg"
-              >
-                Start Your Journey
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-green-300 text-green-700 hover:bg-green-50"
-              >
-                View Career Opportunities
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      
     </Layout>
   );
 };

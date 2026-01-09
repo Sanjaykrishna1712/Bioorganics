@@ -29,7 +29,7 @@ const Login = () => {
 
   return (
     <Layout>
-      <div className="min-h-screen bg-gradient-to-b from-white to-green-50 py-12">
+      <div className="min-h-screen bg-gradient-to-b from-white to-blue-50 py-12">
         <div className="container mx-auto px-4">
           <div className="max-w-md mx-auto">
             {/* Header */}
@@ -38,19 +38,10 @@ const Login = () => {
               animate={{ opacity: 1, y: 0 }}
               className="text-center mb-8"
             >
-              <Link to="/" className="inline-block mb-6">
-                <div className="flex items-center gap-2">
-                  <div className="p-2 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg">
-                    <Leaf className="w-6 h-6 text-white" />
-                  </div>
-                  <span className="font-serif text-2xl font-bold italic text-green-900">
-                    Bio<br/>Organics
-                  </span>
-                </div>
-              </Link>
               
-              <h1 className="text-3xl font-bold text-green-900 mb-3">Welcome Back</h1>
-              <p className="text-green-700/70">Sign in to your account to continue</p>
+              
+              <h1 className="text-3xl font-bold text-gray-900 mb-3">Welcome Back</h1>
+              <p className="text-gray-600">Sign in to your account to continue</p>
             </motion.div>
 
             {/* Login Form */}
@@ -58,16 +49,16 @@ const Login = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="bg-white rounded-3xl shadow-xl border border-green-200/50 p-8"
+              className="bg-white rounded-3xl shadow-xl border border-gray-200 p-8"
             >
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Email */}
                 <div>
-                  <Label htmlFor="email" className="text-green-700 mb-2 block">
+                  <Label htmlFor="email" className="text-gray-700 mb-2 block">
                     Email
                   </Label>
                   <div className="relative">
-                    <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-green-400" />
+                    <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-blue-400" />
                     <Input
                       id="email"
                       name="email"
@@ -75,7 +66,7 @@ const Login = () => {
                       placeholder="your@email.com"
                       value={formData.email}
                       onChange={handleChange}
-                      className="pl-10 border-green-300 focus:border-green-500"
+                      className="pl-10 border-gray-300 focus:border-blue-500 focus:ring-blue-500"
                       required
                     />
                   </div>
@@ -84,18 +75,18 @@ const Login = () => {
                 {/* Password */}
                 <div>
                   <div className="flex justify-between items-center mb-2">
-                    <Label htmlFor="password" className="text-green-700">
+                    <Label htmlFor="password" className="text-gray-700">
                       Password
                     </Label>
                     <Link
                       to="/forgot-password"
-                      className="text-sm text-green-600 hover:text-green-800 transition-colors"
+                      className="text-sm text-blue-600 hover:text-blue-800 transition-colors"
                     >
                       Forgot password?
                     </Link>
                   </div>
                   <div className="relative">
-                    <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-green-400" />
+                    <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-blue-400" />
                     <Input
                       id="password"
                       name="password"
@@ -103,13 +94,13 @@ const Login = () => {
                       placeholder="Your password"
                       value={formData.password}
                       onChange={handleChange}
-                      className="pl-10 pr-10 border-green-300 focus:border-green-500"
+                      className="pl-10 pr-10 border-gray-300 focus:border-blue-500 focus:ring-blue-500"
                       required
                     />
                     <button
                       type="button"
                       onClick={() => setShowPassword(!showPassword)}
-                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-green-400 hover:text-green-600"
+                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-blue-400 hover:text-blue-600"
                     >
                       {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                     </button>
@@ -122,9 +113,9 @@ const Login = () => {
                     id="remember"
                     checked={rememberMe}
                     onCheckedChange={(checked) => setRememberMe(checked as boolean)}
-                    className="border-green-300 data-[state=checked]:bg-green-600"
+                    className="border-gray-300 data-[state=checked]:bg-blue-600 data-[state=checked]:border-blue-600"
                   />
-                  <Label htmlFor="remember" className="text-green-700 cursor-pointer">
+                  <Label htmlFor="remember" className="text-gray-700 cursor-pointer">
                     Remember me
                   </Label>
                 </div>
@@ -132,7 +123,7 @@ const Login = () => {
                 {/* Submit Button */}
                 <Button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 shadow-lg"
+                  className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 shadow-lg"
                   size="lg"
                 >
                   Log In
@@ -143,10 +134,10 @@ const Login = () => {
               {/* Divider */}
               <div className="relative my-8">
                 <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-green-200"></div>
+                  <div className="w-full border-t border-gray-200"></div>
                 </div>
                 <div className="relative flex justify-center text-sm">
-                  <span className="px-4 bg-white text-green-700/60">Or continue with</span>
+                  <span className="px-4 bg-white text-gray-500">Or continue with</span>
                 </div>
               </div>
 
@@ -154,7 +145,7 @@ const Login = () => {
               <div className="grid grid-cols-2 gap-3">
                 <Button
                   variant="outline"
-                  className="border-green-300 text-green-700 hover:bg-green-50"
+                  className="border-gray-300 text-gray-700 hover:bg-gray-50 hover:text-gray-900"
                   type="button"
                 >
                   <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24">
@@ -167,7 +158,7 @@ const Login = () => {
                 </Button>
                 <Button
                   variant="outline"
-                  className="border-green-300 text-green-700 hover:bg-green-50"
+                  className="border-gray-300 text-gray-700 hover:bg-gray-50 hover:text-gray-900"
                   type="button"
                 >
                   <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
@@ -185,11 +176,11 @@ const Login = () => {
               transition={{ delay: 0.2 }}
               className="mt-8 text-center"
             >
-              <p className="text-green-700">
+              <p className="text-gray-600">
                 Don't have an account?{" "}
                 <Link
                   to="/register"
-                  className="font-semibold text-green-600 hover:text-green-800 transition-colors"
+                  className="font-semibold text-blue-600 hover:text-blue-800 transition-colors"
                 >
                   Create an account
                 </Link>
